@@ -1,0 +1,17 @@
+{
+  "name": "digital-marketing-assistant-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "services/*",
+    "packages/*",
+    "infra/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w apps/web\" \"npm run dev -w services/api\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

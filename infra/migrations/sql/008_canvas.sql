@@ -1,0 +1,11 @@
+-- Migration to support Epic 7: Product Design Canvas
+CREATE TABLE IF NOT EXISTS canvas_projects (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
+  name VARCHAR(255) NOT NULL,
+  width INTEGER NOT NULL,
+  height INTEGER NOT NULL,
+  project_payload JSONB NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL
+);

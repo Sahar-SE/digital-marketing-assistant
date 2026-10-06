@@ -1,0 +1,26 @@
+node_modules/
+
+# Environment files and local secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Build output and tool caches
+.next/
+**/dist/
+coverage/
+.turbo/
+.vercel/
+*.tsbuildinfo
+
+# Local logs and development database snapshots
+*.log
+query_log.txt
+/debug_db*.json
+/mock_db_store.json
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.vscode/
