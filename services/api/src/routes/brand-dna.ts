@@ -18,7 +18,7 @@ async function getHarvestQueue(): Promise<Queue | null> {
   const redisUrl = process.env.REDIS_URL || 'redis://localhost:6379';
   try {
     const testClient = new IORedis(redisUrl, {
-      connectTimeout: 500,
+      connectTimeout: 5000,
       maxRetriesPerRequest: 0,
       retryStrategy: () => null
     });

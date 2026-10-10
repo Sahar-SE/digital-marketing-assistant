@@ -11,7 +11,11 @@ if (!connectionString) {
 }
 
 async function runMigrations() {
-  const client = new Client({ connectionString });
+  const isRemote = connectionString && !connectionString.includes('localhost') && !connectionString.includes('127.0.0.1');
+  const client = new Client({
+    connectionString,
+    ssl: isRemote ? { rejectUnauthorized: false } : undefined
+  });
   
   try {
     await client.connect();

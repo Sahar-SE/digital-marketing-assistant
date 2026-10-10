@@ -9,7 +9,12 @@
     "infra/*"
   ],
   "scripts": {
-    "dev": "concurrently \"npm run dev -w apps/web\" \"npm run dev -w services/api\""
+    "dev": "concurrently \"npm run dev -w apps/web\" \"npm run dev -w services/api\"",
+    "build:packages": "npm run build -w packages/shared-types && npm run build -w packages/feature-flags",
+    "build:api": "npm run build:packages && npm run build -w services/api",
+    "build:web": "npm run build:packages && npm run build -w apps/web",
+    "start:api": "npm run start -w services/api",
+    "start:web": "npm run start -w apps/web"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"

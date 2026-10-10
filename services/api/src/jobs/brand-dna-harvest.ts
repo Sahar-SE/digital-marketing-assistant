@@ -9,7 +9,7 @@ let worker: Worker | null = null;
 async function startWorker() {
   try {
     const testClient = new IORedis(redisUrl, {
-      connectTimeout: 500,
+      connectTimeout: 5000,
       maxRetriesPerRequest: 0,
       retryStrategy: () => null
     });

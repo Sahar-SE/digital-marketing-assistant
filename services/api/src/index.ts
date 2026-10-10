@@ -22,6 +22,15 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
 
+// Root status endpoint
+app.get('/', (req, res) => {
+  res.json({
+    status: 'online',
+    service: 'Digital Marketing Assistant API',
+    healthCheck: '/api/health'
+  });
+});
+
 // Mount routers
 app.use('/api/auth', authRouter);
 app.use('/api/billing', billingRouter);
