@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000",
+    "build:packages": "npm run build --prefix ../../packages/shared-types && npm run build --prefix ../../packages/feature-flags",
     "build": "next build",
     "start": "next start"
   },
